@@ -18,4 +18,4 @@ def approxEntropy(N, p):
     temp += infoMeasure(i, p)
   return temp / N  
 
-  
+sumProb(100, 0.5)
