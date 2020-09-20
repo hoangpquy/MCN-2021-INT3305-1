@@ -7,6 +7,10 @@ def infoMeasure(n, p):
   return -math.log(i, 2)
 
 def sumProb(N, p):
+  '''
+  Khi chay lan luot cac gia tri cua N tu 1 den 100,
+  ta duoc sumProb co gia tri xap xi 1
+  '''
   sum = 0.0
   for i in range(1, N+1):
     sum += prop(i, p)
@@ -18,4 +22,7 @@ def approxEntropy(N, p):
     temp += infoMeasure(i, p)
   return temp / N  
 
-sumProb(100, 0.5)
+for i in range(1, 100): 
+  print(sumProb(i, 0.5))
+
+help(sumProb)
