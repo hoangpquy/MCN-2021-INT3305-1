@@ -6,7 +6,7 @@ def giaithua(n):
     return n * giaithua(n - 1)
 def prop(n, p, N):
   tohop = giaithua(N)/(giaithua(n) * giaithua(N-n))
-  return tohop * p ** N
+  return tohop * p * (1-p) ** (N-1)
 
 def infoMeasure(n, p, N):
   i = prop(n, p, N)
@@ -25,8 +25,8 @@ def sumProb(N, p):
 def approxEntropy(N, p):
   temp = 0.0
   for i in range(1, N+1):
-    temp += infoMeasure(i, p, N)
-  return temp / N  
+    temp += infoMeasure(i, p, N) * prop(i, p, N)
+  return temp  
 
 for i in range(100, 200):
   print(sumProb(i, 0.5))

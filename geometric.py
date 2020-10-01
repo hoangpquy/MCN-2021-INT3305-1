@@ -1,6 +1,6 @@
 import math
 def prop(n, p):
-  return p**n
+  return 1.0*p*(1-p)**(n-1)
 
 def infoMeasure(n, p):
   i = prop(n, p)
@@ -19,8 +19,8 @@ def sumProb(N, p):
 def approxEntropy(N, p):
   temp = 0.0
   for i in range(1, N+1):
-    temp += infoMeasure(i, p)
-  return temp / N  
+    temp += infoMeasure(i, p) * prop(i, p)
+  return temp
 
 for i in range(1, 100): 
   print(sumProb(i, 0.5))
